@@ -1,0 +1,58 @@
+---
+title: "Untitled"
+output: pdf_document
+date: "2026-01-27"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Mini rúbrica (alineada a tus criterios)
+
+# Mini rúbrica — Práctica integradora (manuscrito + defensa)
+
+**Escala (0–4):**  
+0 = ausente / no evidenciado  
+1 = débil / incompleto / errores conceptuales  
+2 = aceptable / cumple mínimo  
+3 = bueno / sólido, pocos fallos  
+4 = excelente / completo, claro y crítico  
+
+## 1) Recorrido por la teoría (0–4)
+- 0: no conecta con teoría o usa conceptos mal
+- 2: define y usa algunos conceptos correctamente, pero parcial
+- 4: evidencia comprensión amplia; conceptos usados con precisión, supuestos explícitos
+
+## 2) Planteamiento del problema y preguntas (0–4)
+- 0: no hay preguntas o son vagas
+- 2: preguntas claras pero poco operativas o no se responden bien
+- 4: preguntas/hypótesis precisas y respondidas con evidencia
+
+## 3) Métodos y decisiones analíticas (0–4)
+- 0: métodos no declarados o incorrectos
+- 2: métodos descritos pero con justificación limitada
+- 4: métodos claros, decisiones justificadas (transformación, distancia, técnica), coherentes con datos
+
+## 4) Reproducibilidad (0–4)
+- 0: no corre / faltan pasos / archivos / no hay pipeline
+- 2: corre con ajustes menores; reproducibilidad parcial
+- 4: corre de inicio a fin; estructura limpia; `sessionInfo()`; semillas; repo ordenado
+
+## 5) Resultados e interpretación (0–4)
+- 0: salidas sin interpretar o interpretaciones erróneas
+- 2: interpreta lo básico pero superficial o desconectado de preguntas
+- 4: interpretación correcta, conectada con teoría, reconoce qué muestra y qué no
+
+## 6) Limitaciones y conclusiones (0–4)
+- 0: no hay limitaciones o son irreales
+- 2: limitaciones y conclusiones presentes pero genéricas
+- 4: limitaciones reales y específicas; conclusiones defendibles y acotadas
+
+## 7) Comunicación escrita y oral (0–4)
+- 0: manuscrito desordenado / defensa incoherente
+- 2: comunicación clara pero con fallos de estructura/tiempo
+- 4: manuscrito claro y conciso; diapositivas efectivas; 17+3 cumplido; responde preguntas
+
+**Puntaje total (0–28):** ____ / 28
+**Observaciones del profesor:** …

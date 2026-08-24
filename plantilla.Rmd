@@ -1,0 +1,263 @@
+---
+title: "Título del manuscrito (informativo, no \"Práctica X\")"
+author:
+  - "Nombre Apellido (Matrícula XXXXX)"
+  - "Nombre Apellido (Matrícula XXXXX) [si aplica]"
+course: "Biogeografía (GEO-131)"
+practice: "Práctica: Técnicas de ecología numérica con *datasets* de R"
+date: "`r format(Sys.Date(), '%Y-%m-%d')`"
+output:
+  bookdown::pdf_document2:
+    # toc: true
+    # toc_depth: 3
+    number_sections: false
+    fig_caption: yes
+always_allow_html: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  comment = "#>",
+  fig.width = 7,
+  fig.height = 5,
+  out.width = "100%"
+)
+set.seed(123)
+
+# Paquetes (ajusta según el ejercicio elegido)
+pkg_needed <- c("vegan", "cluster", "indicspecies", "adespatial",
+                "iNEXT", "SpadeR", "ggplot2", "dplyr", "tidyr", "readr")
+has_pkg <- sapply(pkg_needed, requireNamespace, quietly = TRUE)
+if (!all(has_pkg)) {
+  message("Paquetes no críticos ausentes (se omitirán bloques opcionales): ",
+          paste(names(has_pkg)[!has_pkg], collapse = ", "))
+}
+invisible(sapply(names(has_pkg)[has_pkg], library, character.only = TRUE))
+```
+
+<!-- ===========================================================
+REGLAS DE LA PRÁCTICA (resumen operativo)
+- Producto: manuscrito reproducible + presentación oral (17 + 3).
+- Individual o pareja: cada integrante debe dominar todo.
+- IA: se permite como apoyo, pero TODO debe ser verificable y trazable.
+- Puedes usar esta plantilla o cualquier otra de tu preferencia.
+- El código que aparece en esta plantilla es una base de ejemplo genérica, probablemente no aplica a tu caso.
+=========================================================== -->
+
+# Resumen (Abstract)
+
+> **Escribe 150–250 palabras.**
+> Incluye: (i) problema, (ii) datos, (iii) técnica principal, (iv) 1–2 hallazgos, (v) conclusión principal y 1 limitación.
+
+**Palabras clave:** `palabra1; palabra2; palabra3; ...`
+
+# 1. Introducción
+
+## 1.1. Contexto biogeográfico/ecológico
+
+> **Describe el fenómeno/patrón** (diversidad, composición, gradiente, estructura espacial, etc.) que se relaciona con el ejercicio elegido.
+> Es suficiente un contexto breve y bien enfocado.
+
+## 1.2. Problema y justificación
+
+> **¿Qué problema vas a resolver con este dataset?**
+> ¿Por qué es relevante para biogeografía/ecología numérica?
+
+## 1.3. Preguntas e hipótesis
+
+> **Declara explícitamente** 2–4 preguntas (o hipótesis si aplica).
+> Ejemplos de plantilla:
+
+* **P1.** …
+* **P2.** …
+* **H1 (si aplica).** …
+
+## 1.4. Recorrido teórico mínimo exigido (checklist)
+
+> Marca y evidencia en el manuscrito (con definición breve + uso correcto) **los conceptos teóricos** relacionados con tu ejercicio.
+> (Borra lo que no aplique; añade lo que sí.)
+
+* [ ] AED/EDA (resúmenes, outliers, escalas)
+* [ ] Transformaciones (Hellinger, log, estandarización, etc.)
+* [ ] Distancias (Bray–Curtis, Jaccard, Euclidiana, etc.) y justificación
+* [ ] Técnica principal (PCA/CA/NMDS/CCA/db-RDA/cluster/PERMANOVA/iNEXT/SDM/…)
+* [ ] Supuestos y limitaciones de la técnica
+* [ ] Interpretación (ejes, biplots, centroides vs dispersión, etc.)
+* [ ] Escala y muestreo (qué representa un sitio/muestra)
+* [ ] Implicaciones biogeográficas/ecológicas (qué sugiere el patrón)
+* [ ] Reproducibilidad (pipeline ejecutable, semillas, sesión)
+
+# 2. Materiales y métodos
+
+## 2.1. Datos
+
+### 2.1.1. Dataset y origen
+
+> Indica **qué dataset** usas (`dune`, `varespec/varechem`, `mite`, `BCI`, etc.) y **de qué paquete** viene.
+> Incluye la referencia/cita del paquete o fuente cuando corresponda.
+
+```{r datos-origen}
+# TODO: carga/obtén el dataset
+# Ejemplo:
+# data(dune, package = "vegan")
+# data(dune.env, package = "vegan")
+```
+
+### 2.1.2. Diseño de muestreo y variables
+
+> Describe: unidad muestral, variables biológicas (respuesta) y ambientales (explicativas), tipos de variables, rangos, NA, etc.
+
+```{r datos-inspeccion}
+# TODO: inspección mínima
+# str(...)
+# summary(...)
+# head(...)
+```
+
+### 2.1.3. Limitaciones del dataset
+
+> Señala limitaciones **reales** (tamaño muestral, sesgos, variables omitidas, representatividad, escalas, etc.).
+
+## 2.2. Preparación de datos (decisiones analíticas)
+
+### 2.2.1. Limpieza y manejo de NA
+
+```{r limpieza}
+# TODO: decisiones de NA / filtrados (justifica en texto)
+```
+
+### 2.2.2. Transformaciones y estandarización
+
+> Explica qué transformación aplicas y **por qué**.
+
+```{r transformaciones}
+# TODO: transformación (e.g., decostand(..., "hellinger"))
+```
+
+### 2.2.3. Medida(s) de distancia (si aplica)
+
+> Declara la(s) distancia(s) y justifica (tipo de datos, objetivo, supuestos).
+
+```{r distancias}
+# TODO: distance matrix (e.g., vegdist(..., method="bray"))
+```
+
+## 2.3. Técnica principal (núcleo del ejercicio)
+
+> Describe la técnica, qué responde, qué representa cada salida y sus supuestos.
+
+```{r tecnica-principal}
+# TODO: implementa la técnica elegida
+# Ejemplos:
+# - Ord. no restringida: rda() para PCA, metaMDS() para NMDS
+# - Ord. restringida: cca(), capscale()
+# - Clustering: hclust()
+# - PERMANOVA: adonis2()
+# - Diversidad: diversity(), specnumber(), betadiver(), etc.
+# - iNEXT: iNEXT()
+```
+
+## 2.4. Verificación mínima de supuestos / diagnósticos
+
+> Aquí no se trata de “cumplir por cumplir”: explica **qué chequeas** y qué implica.
+
+```{r supuestos}
+# TODO: diagnósticos mínimos según técnica
+# - stress (NMDS), eigenvalues, colinealidad, betadisper, etc.
+```
+
+## 2.5. Reproducibilidad
+
+> Declara cómo garantizas reproducibilidad: semilla, sesión, orden de ejecución.
+
+```{r session-info}
+sessionInfo()
+```
+
+# 3. Resultados
+
+> Presenta resultados en el mismo orden que Métodos.
+> Cada figura/tabla debe tener: (i) qué muestra, (ii) resultado clave, (iii) vínculo con preguntas.
+
+## 3.1. Resultados del AED
+
+```{r resultados-eda}
+# TODO: resúmenes/plots mínimos
+```
+
+## 3.2. Resultados de la técnica principal
+
+```{r resultados-tecnica}
+# TODO: gráficos/tablas principales
+```
+
+## 3.3. Resultados complementarios (opcionales)
+
+```{r resultados-extra}
+# TODO: análisis extra si aporta a tus preguntas
+```
+
+# 4. Discusión
+
+## 4.1. Respuesta directa a preguntas/hipótesis
+
+> Responde P1, P2, etc., citando evidencia concreta (figuras/tablas).
+
+## 4.2. Interpretación conectada con teoría
+
+> Vuelve a los conceptos del checklist y muestra que los entiendes:
+> qué significa el patrón, qué no significa, y bajo qué supuestos.
+
+## 4.3. Implicaciones biogeográficas/ecológicas (y conservación si aplica)
+
+> ¿Qué sugiere tu análisis sobre procesos, filtros ambientales, dispersión, estructura espacial, heterogeneidad?
+
+# 5. Aporte del trabajo
+
+> En 3–6 líneas: ¿qué aporta tu trabajo?
+> (Puede ser metodológico: “muestra cómo…”; o conceptual: “sugiere que…”)
+
+# 6. Limitaciones
+
+> Lista 3–6 limitaciones **reales**:
+
+* Dataset (muestra, variables, escala)
+* Método (supuestos, sensibilidad a parámetros, distancia, transformación)
+* Generalización (qué NO puedes concluir)
+
+# 7. Conclusiones
+
+> 3–6 bullets o un párrafo corto.
+> Deben ser defendibles y estar sustentadas en resultados.
+
+# Referencias
+
+<!-- Si usas bibliografía con .bib, activa:
+bibliography: referencias.bib
+y cita con [@clave] -->
+
+# Apéndice A. Bitácora de decisiones (incluye IA)
+
+> Registra decisiones clave y evidencia de verificación.
+> No es “para delatarte”: es para mostrar trazabilidad.
+
+## A.1. Decisiones analíticas
+
+* Transformación elegida: … (por qué)
+* Distancia elegida: … (por qué)
+* Parámetros clave: … (por qué)
+* Alternativas probadas: … (qué cambió)
+
+## A.2. Uso de IA (si aplica)
+
+> Si usaste IA, documenta **qué preguntaste** y **cómo verificaste**.
+
+* Objetivo de la consulta: …
+* Resumen de la respuesta recibida: …
+* Cómo verifiqué (doc, ayuda de R, manual, paper, etc.): …
+* Qué adopté y qué descarté: …
+
+---
