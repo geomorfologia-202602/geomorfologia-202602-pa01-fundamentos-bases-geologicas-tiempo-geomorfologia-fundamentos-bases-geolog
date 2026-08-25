@@ -1,7 +1,7 @@
 PA01 · Fundamentos, bases geológicas y tiempo en geomorfología
 ================
 Geomorfología (GEO-114)
-2026-02-02
+2026-08-25
 
 - [Fecha/hora de entrega](#fechahora-de-entrega)
 - [Introducción](#introducción)
@@ -114,6 +114,32 @@ Versión HTML (quizá más legible),
 
 # Introducción
 
+> ## Objetivo transversal: auditar críticamente a la IA
+>
+> En esta práctica, además de desarrollar el ejercicio elegido y
+> alcanzar sus objetivos geomorfológicos, deberás **usar y someter a
+> evaluación crítica herramientas de inteligencia artificial**. Durante
+> el desarrollo del trabajo deberás identificar **al menos un error,
+> limitación, simplificación injustificada o respuesta problemática
+> producida por la IA**, y demostrar por qué lo es.
+>
+> El problema detectado puede ser **técnico-metodológico** (código,
+> datos, métodos, procedimientos o su aplicación),
+> **conceptual-disciplinar** (conceptos, teorías o procesos
+> geomorfológicos) o **inferencial-epistemológico** (interpretación de
+> la evidencia, supuestos, causalidad, alcance de las conclusiones o
+> aquello que los datos permiten afirmar). **No es necesario encontrar
+> problemas de las tres categorías.**
+>
+> No basta con afirmar que «la IA se equivocó». Deberás conservar
+> evidencia de la respuesta problemática, **explicar exactamente dónde
+> está el problema, contrastarla mediante fuentes, datos, documentación
+> técnica, resultados reproducibles o razonamiento disciplinar, y
+> mostrar cuál sería la respuesta, interpretación o procedimiento
+> correcto o mejor fundamentado**. Esta auditoría deberá quedar
+> documentada en el manuscrito y será presentada y defendida oralmente
+> en clase.
+
 Esta práctica inaugura la asignatura y está diseñada para que el
 estudiantado construya una base sólida en los **fundamentos
 conceptuales**, las **bases geológicas/estructurales**, y la noción de
@@ -154,6 +180,9 @@ siguientes secciones mínimas:
   producto cartográfico si aplica). Las figuras y tablas deben referirse
   en el texto, es decir, deben contar con “referencia cruzada”.
 - **Discusión**.
+- **Auditoría crítica de IA**: evidencia de al menos un error o
+  limitación detectado, demostración del problema, fuentes o evidencias
+  utilizadas para contrastarlo y corrección o alternativa fundamentada.
 - **Conclusiones**.
 - **Referencias**. Las referencias deben insertarse automáticamente
   mediante la bibliografía del repositorio, usando formato BibTeX y
@@ -186,7 +215,9 @@ Una exposición breve:
 - **17 minutos** por estudiante
 - Recomendado: 10 diapositivas
 - Debe explicar: problema, enfoque, evidencia principal
-  (tabla/figura/mapas), conclusiones y limitaciones.
+  (tabla/figura/mapas), conclusiones y limitaciones, e incluir una
+  sección explícita de **auditoría crítica de IA**, en la que se
+  presente y demuestre el error o limitación identificado.
 
 # Cómo se organiza la práctica (ciclo estándar + entregas parciales)
 
@@ -245,7 +276,9 @@ Una exposición breve:
 # Qué debes elegir (ejercicio)
 
 - Cada estudiante debe elegir **un solo ejercicio**.
-- No se permiten ejercicios repetidos entre personas.
+- No se permiten ejercicios repetidos entre personas. En esta práctica,
+  particularmente, dos o más etudiantes podrían elegir el ejercicio 8,
+  siempre que cada uno elija un área pequeña distinta para analizar.
 
 # Cómo usar los ejercicios (reglas del juego)
 
@@ -266,8 +299,10 @@ Una exposición breve:
 4.  **No inventes contenido.** Toda afirmación importante debe estar
     sustentada.
 
-5.  **Usa IA, pero supervisa/controla lo que te dé.** No copies y pegues
-    sin revisar. Verifica todo.
+5.  **Usa IA, pero audítala.** Supervisa, contrasta y verifica sus
+    respuestas. Conserva evidencia de los errores o limitaciones que
+    detectes durante el trabajo para documentar la auditoría crítica
+    exigida en esta práctica.
 
 6.  **Evita lo puramente opinativo.** Argumenta con base en el corpus y
     en conceptos geomorfológicos.
@@ -561,8 +596,9 @@ una interpretación geomorfológica.
 
   - Problema y marco teórico (20)
   - Metodología documental y trazabilidad (10)
-  - Evidencia (tabla/figura/mapa) y calidad interpretativa (25)
-  - Discusión, limitaciones y conclusiones (15)
+  - Evidencia (tabla/figura/mapa) y calidad interpretativa (20)
+  - Discusión, limitaciones y conclusiones (10)
+  - Auditoría crítica de IA (10)
 
 - **Presentación oral (20%)**
 
@@ -581,6 +617,12 @@ una interpretación geomorfológica.
 - Tabla/figura informativa y correctamente titulada.
 - Conclusiones que respondan a la pregunta.
 - Limitaciones explícitas (qué no puedes afirmar con tu evidencia).
+- **Auditoría crítica de IA**: se valora la capacidad de identificar,
+  demostrar, explicar y corregir un error o limitación
+  **técnico-metodológica, conceptual-disciplinar o
+  inferencial-epistemológica**. La calidad de la auditoría se evalúa por
+  la solidez de la demostración y del contraste realizado, **no por la
+  cantidad de errores encontrados ni por cubrir todas las categorías**.
 
 ------------------------------------------------------------------------
 
@@ -614,4 +656,4 @@ sessionInfo()
     ##  [9] knitr_1.47        htmltools_0.5.8.1 rmarkdown_2.27    ps_1.8.1         
     ## [13] promises_1.3.2    cli_3.6.3         processx_3.8.5    chromote_0.4.0   
     ## [17] compiler_4.4.0    tools_4.4.0       rstudioapi_0.17.1 evaluate_0.24.0  
-    ## [21] yaml_2.3.10       Rcpp_1.0.14       rlang_1.1.5       jsonlite_1.8.9
+    ## [21] yaml_2.3.10       Rcpp_1.0.14       rlang_1.1.7       jsonlite_1.8.9
